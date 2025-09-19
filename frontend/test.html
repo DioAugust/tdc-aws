@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Teste Backend</title>
+</head>
+<body>
+    <h1>Teste de Conexão Backend</h1>
+    <button onclick="testBackend()">Testar Backend</button>
+    <div id="result"></div>
+
+    <script>
+        async function testBackend() {
+            const result = document.getElementById('result');
+            result.innerHTML = 'Testando...';
+            
+            try {
+                // Teste 1: Endpoint raiz
+                const response1 = await fetch('http://localhost:3001/');
+                const data1 = await response1.json();
+                result.innerHTML += '<p>✅ Backend conectado: ' + data1.message + '</p>';
+                
+                // Teste 2: Buscar pergunta
+                const response2 = await fetch('http://localhost:3001/api/question?level=1');
+                const data2 = await response2.json();
+                result.innerHTML += '<p>✅ API funcionando: ' + data2.question + '</p>';
+                
+            } catch (error) {
+                result.innerHTML += '<p>❌ Erro: ' + error.message + '</p>';
+                result.innerHTML += '<p>Verifique se o backend está rodando na porta 3001</p>';
+            }
+        }
+    </script>
+</body>
+</html>

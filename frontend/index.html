@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Adaptativo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <div class="header">
+            <h1>Quiz Adaptativo Educacional</h1>
+            <div class="stats">
+                <span>Pontuação: <span id="score">0</span></span>
+                <span>Nível: <span id="level">1</span></span>
+            </div>
+        </div>
+
+        <div id="loading" class="loading" style="display: none;">
+            Carregando...
+        </div>
+
+        <div id="question-card" class="question-card">
+            <div class="question">
+                <h2 id="question-text">Conectando com servidor...</h2>
+                <span id="difficulty" class="difficulty">Dificuldade: 1</span>
+            </div>
+
+            <div class="answer-section">
+                <div id="options" class="options"></div>
+                <input type="text" id="text-input" class="text-input" placeholder="Digite sua resposta..." style="display: none;">
+                
+                <button id="submit-btn" class="submit-btn" onclick="submitAnswer()">
+                    Responder
+                </button>
+            </div>
+
+            <div id="feedback" class="feedback" style="display: none;"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
